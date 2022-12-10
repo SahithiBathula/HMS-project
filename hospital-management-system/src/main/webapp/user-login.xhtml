@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" >
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>User Login</title>
+	</h:head>
+	<h:body>
+		<ui:include page="header.xhtml" />
+		
+		<div class="container">
+			<div class="card bg-dark custom-card">
+				<article class="card-body mx-auto" style="max-width: 600px;">
+					<p class="divider-text"><span class="bg-dark">Login</span></p>
+					<h:form id="form">
+						<div class="form-group input-group">
+							<div class="input-group-prepend">
+							    <span class="input-group-text"><i class="fa fa-user-doctor"></i></span>
+							 </div>
+					         <h:inputText id="username" validator="#{hospitalDao.validateUserName}" value="#{username}" class="form-control" a:placeholder="Username" type="text" pattern="[A-Za-z\s]+" required="true" requiredMessage="UserName is Required" />
+					         
+					         <div class="input-group">
+                                <h:message for="username" style="color:red;"></h:message>
+                             </div>
+					    </div>
+					    
+					    <div class="form-group input-group">
+					    	<div class="input-group-prepend">
+							    <span class="input-group-text"><i class="fa-solid fa-heart"></i></span>
+							 </div>
+					         <h:inputText id="password" validator="#{hospitalDao.validatePassword}" value="#{password}" class="form-control" placeholder="Password" type="text" pattern="[A-Za-z\s]+" required="true" requiredMessage="Password is Required"/>
+					         
+					         <div class="input-group">
+                                <h:message for="password" style="color:red;"></h:message>
+                             </div>
+					    </div>
+					    
+					    <div class="form-group">
+					        <h:commandButton class="btn btn-primary btn-block" value="Login" action="#{hospitalDao.login(username, password)}"/>
+					    </div>                                                                 
+					</h:form>
+				</article>
+			</div>
+		</div>
+		
+		<script>
+			document.getElementById("form:username").setAttribute('placeholder', "Username")
+			document.getElementById("form:password").setAttribute('placeholder', "Password")
+		</script>
+	</h:body>
+</html>

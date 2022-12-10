@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ui="http://java.sun.com/jsf/facelets">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+        <title>Show Doctors</title>
+    </head>
+    <body>
+        <ui:include page="header.xhtml" />
+        <div class="table-div">
+            <h:dataTable id="doctorTable" value="#{hospitalDao.showAllDoctors()}" var="d" class="table table-secondary table-striped table-hover table-bordered margin-top-10">
+                <h:column>
+                    <f:facet name="header">Doctor Id</f:facet> #{d.doctorId}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Doctor Name</f:facet> #{d.doctorName}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Doctor Specialization</f:facet> #{d.doctorSpecialization}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Doctor Experience</f:facet> #{d.doctorExperience}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Doctor Status</f:facet> #{d.doctorStatus}
+                </h:column>
+            </h:dataTable>
+        </div>
+        <script>
+            $(document).ready(function() {
+                $('#doctorTable').DataTable({
+                    scrollY: '50vh',
+                    scrollCollapse: true,
+                });
+            });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+@CHARSET "ISO-8859-1";
+
+.table-div{
+	margin-top: 10px;
+	width:320px; 
+	height:500px; 
+	width:80%;
+	overflow: auto;
+	
+	margin: auto;
+	margin-top: 30px;
+}
+
+.divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    color: white;
+    font-size: 30px;
+    font-weight: 500;
+    position: relative;   
+    z-index: 2;
+}
+
+.custom-card{
+	max-width: 700px;
+	margin: auto;
+	margin-top: 50px;
+}
+
+.logo-image{
+  	max-width: 100px;
+  	height: auto;
+}
+
+#bg .bg-image  {
+    background: url('../images/hospital-management-system.jpg') 50% 100px no-repeat fixed; 
+    background-size: cover;
+    height:500px
+}

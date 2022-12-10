@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">spatd</property>
+        <property name="hibernate.connection.url">jdbc:mysql://127.0.0.1:3306/hospital_management</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <mapping class="com.infinite.hospital_management_system.Doctor"/>
+        <mapping class="com.infinite.hospital_management_system.Patient"/>
+        <mapping class="com.infinite.hospital_management_system.MedicalHistory"/>
+        <mapping class="com.infinite.hospital_management_system.Payment"/>
+        <mapping class="com.infinite.hospital_management_system.Treatment"/>
+        <mapping class="com.infinite.hospital_management_system.Room"/>
+        <mapping class="com.infinite.hospital_management_system.Issues"/>
+        <mapping class="com.infinite.hospital_management_system.Users"/>
+    </session-factory>
+</hibernate-configuration>

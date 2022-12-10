@@ -1,0 +1,4 @@
+"treatment_id";"patient_id";"doctor_id";"visitingOrAdmitting";"treatment_date";"discharge_date";"issue";"room_id"
+1;1;1;0;"2022-11-15";"";"Periodic checkup";0
+2;2;2;1;"2022-11-15";"2022-11-15";"Heart Attack";1
+23;6;1;1;"2022-11-17";"2022-11-17";"Heart Attack";2

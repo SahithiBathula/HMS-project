@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html  
+	xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:h="http://java.sun.com/jsf/html" 
+	xmlns:f="http://java.sun.com/jsf/core" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:a="http://xmlns.jcp.org/jsf/passthrough" 
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<h:head>
+		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+		<title>Add Patient</title>
+	</h:head>
+	<h:body>	
+		<ui:include page="header.xhtml" />
+		
+		<div class="container">
+			<div class="card bg-dark custom-card">
+				<article class="card-body mx-auto" style="max-width: 600px;">
+					<p class="divider-text"><span class="bg-dark">Add Patient</span></p>
+					<h:form id="form">
+						<div class="form-group input-group">
+							<div class="input-group-prepend">
+							    <span class="input-group-text"><i class="fa fa-bed"></i></span>
+							 </div>
+					        <h:inputText id="patientName" value="#{patient.patientName}" validator="#{hospitalDao.validateName}" class="form-control"  type="text" pattern="[A-Za-z\s]+" required="true" requiredMessage="Patient name is required"/>
+					     <div class="input-group">
+				         	<h:message for="patientName" style="color:red"/>
+				         </div>		
+					    </div>
+					    
+					    <div class="form-group input-group">
+					    	<div class="input-group-prepend">
+							    <span class="input-group-text"><i class="fa-solid fa-home"></i></span>
+							 </div>
+					        <h:inputText id="patientAddress" value="#{patient.patientAddress}" validator="#{hospitalDao.validateAddress}" class="form-control"  type="text" pattern="[A-Za-z0-9-,/\s]+" required="true" requiredMessage="Address is required"/>
+					    <div class="input-group">
+				         	<h:message for="patientAddress" style="color:red"/>
+				         </div>	
+					    </div>
+					    
+					    <div class="form-group input-group">
+					    	<div class="input-group-prepend">
+							    <span class="input-group-text"><i class="fa-solid fa-envelope"></i></span>
+							 </div>
+					        <h:inputText id="patientEmail" value="#{patient.patientEmail}" validator="#{hospitalDao.validateEmail}" class="form-control"  type="email" required="true" requiredMessage="Email is required"/>
+					   <div class="input-group">
+				         	<h:message for="patientEmail" style="color:red"/>
+				         </div>	
+					    </div>
+					    
+					            
+					    <div class="form-group input-group">
+					    	<div class="input-group-prepend">
+							    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+							</div>
+							<h:selectOneMenu class="custom-select" style="max-width: 80px;">
+							    <f:selectItem selected="selected" itemValue="+91" itemLabel="+91" />
+							    <f:selectItem itemValue="+1" itemLabel="+1" />
+							    <f:selectItem itemValue="+198" itemLabel="+198" />
+							    <f:selectItem itemValue="+701" itemLabel="+701" />
+							</h:selectOneMenu>
+					    	<h:inputText id="patientPhone" value="#{patient.patientPhone}" validator="#{hospitalDao.validateMobNo}" class="form-control"  type="number" pattern="\d*" maxlength="10" minlength="10" required="true" requiredMessage="mobile number is required"/>
+					    <div class="input-group">
+				         	<h:message for="patientPhone" style="color:red"/>
+				         </div>	
+					    </div>
+					    
+					    <div class="form-group">
+					        <h:commandButton class="btn btn-primary btn-block" value="SIGNUP" action="#{hospitalDao.addPatient(patient)}"/>
+					    </div>                                                                 
+					</h:form>
+				</article>
+			</div>
+		</div>
+		<script>
+			document.getElementById("form:patientName").setAttribute('placeholder', "Patient Name")
+			document.getElementById("form:patientAddress").setAttribute('placeholder', "Patient Address")
+			document.getElementById("form:patientEmail").setAttribute('placeholder', "Patient Email")
+			document.getElementById("form:patientPhone").setAttribute('placeholder' ,"mobile number" )
+		</script>
+	</h:body>
+</html>
